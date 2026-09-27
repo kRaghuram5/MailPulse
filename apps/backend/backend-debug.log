@@ -1,0 +1,568 @@
+2026-09-27 08:38:14 [[32minfo[39m]: Starting email worker {"concurrency":5,"minDelay":2000}
+2026-09-27 08:38:14 [[32minfo[39m]: Redis [queue] connecting
+2026-09-27 08:38:14 [[32minfo[39m]: Database connected successfully
+2026-09-27 08:38:14 [[32minfo[39m]: Redis [queue] ready
+2026-09-27 08:38:14 [[32minfo[39m]: Redis [shared] connecting
+2026-09-27 08:38:14 [[32minfo[39m]: Redis [shared] ready
+2026-09-27 08:38:14 [[32minfo[39m]: Redis connected
+2026-09-27 08:38:14 [[32minfo[39m]: Elasticsearch connected {"version":"8.11.1"}
+2026-09-27 08:38:14 [[32minfo[39m]: Email worker is running and waiting for jobs
+2026-09-27 08:38:14 [[32minfo[39m]: Redis [worker] connecting
+2026-09-27 08:38:14 [[32minfo[39m]: Redis [worker] ready
+2026-09-27 08:38:14 [[32minfo[39m]: Redis [queue] connecting
+2026-09-27 08:38:14 [[32minfo[39m]: Database connected successfully
+2026-09-27 08:38:14 [[32minfo[39m]: Redis [shared] connecting
+2026-09-27 08:38:14 [[32minfo[39m]: Redis [queue] ready
+2026-09-27 08:38:14 [[32minfo[39m]: Redis [shared] ready
+2026-09-27 08:38:14 [[32minfo[39m]: Redis connected
+2026-09-27 08:38:14 [[32minfo[39m]: Elasticsearch connected {"version":"8.11.1"}
+2026-09-27 08:38:14 [[32minfo[39m]: 🚀 Outbox Backend running on port 5000 {"env":"development","bullBoard":"http://localhost:5000/admin/queues"}
+2026-09-27 08:38:14 [[32minfo[39m]: Redis [session] connecting
+2026-09-27 08:38:14 [[32minfo[39m]: Redis [session] ready
+2026-09-27 08:39:58 [[32minfo[39m]: Redis [queue] connecting
+2026-09-27 08:39:58 [[32minfo[39m]: Database connected successfully
+2026-09-27 08:39:58 [[32minfo[39m]: Redis [shared] connecting
+2026-09-27 08:39:58 [[32minfo[39m]: Redis [queue] ready
+2026-09-27 08:39:58 [[32minfo[39m]: Redis [shared] ready
+2026-09-27 08:39:58 [[32minfo[39m]: Redis connected
+2026-09-27 08:39:58 [[32minfo[39m]: Elasticsearch connected {"version":"8.11.1"}
+2026-09-27 08:39:58 [[32minfo[39m]: 🚀 Outbox Backend running on port 5000 {"env":"development","bullBoard":"http://localhost:5000/admin/queues"}
+2026-09-27 08:39:58 [[32minfo[39m]: Redis [session] connecting
+2026-09-27 08:39:58 [[32minfo[39m]: Redis [session] ready
+2026-09-27 08:40:09 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:10:09 +0000] "GET /test-session HTTP/1.1" 200 70 "-" "Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.9444"
+2026-09-27 08:40:14 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:10:14 +0000] "GET /api/auth/google HTTP/1.1" 302 0 "http://localhost:5173/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:40:22 [[31merror[39m]: Prisma error 
+Invalid `prisma.user.upsert()` invocation in
+D:\Outbox_lab\outbox-email-scheduler\apps\backend\src\auth\passport.ts:40:42
+
+  37 }
+  38 
+  39 // Upsert user: create if new, update name/avatar if returning
+→ 40 const user = await prisma.user.upsert(
+The table `public.User` does not exist in the current database.
+2026-09-27 08:40:22 [[31merror[39m]: Google OAuth strategy error {"error":{"name":"PrismaClientKnownRequestError","code":"P2021","clientVersion":"5.22.0","meta":{"modelName":"User","table":"public.User"}}}
+2026-09-27 08:40:22 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:10:22 +0000] "GET /api/auth/google/callback?iss=https%3A%2F%2Faccounts.google.com&code=4%2F0AXlqoi5ERkkHqzrXHQQFWvuPNLw17s734949vcrmwQnvuAtAfYeGZSoA9ahgi_oJGmin6w&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&authuser=4&prompt=none HTTP/1.1" 302 60 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:40:22 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:10:22 +0000] "GET /api/auth/me HTTP/1.1" 401 42 "http://localhost:5173/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:40:22 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:10:22 +0000] "GET /api/auth/me HTTP/1.1" 401 42 "http://localhost:5173/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:40:22 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:10:22 +0000] "GET /api/auth/me HTTP/1.1" 401 42 "http://localhost:5173/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:40:25 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:10:25 +0000] "GET /api/auth/me HTTP/1.1" 401 42 "http://localhost:5173/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:40:31 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:10:31 +0000] "GET /api/auth/me HTTP/1.1" 401 42 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:40:31 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:10:31 +0000] "GET /api/auth/me HTTP/1.1" 401 42 "http://localhost:5173/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:40:31 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:10:31 +0000] "GET /api/auth/me HTTP/1.1" 401 42 "http://localhost:5173/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:40:33 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:10:33 +0000] "GET /api/auth/google HTTP/1.1" 302 0 "http://localhost:5173/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:40:38 [[31merror[39m]: Prisma error 
+Invalid `prisma.user.upsert()` invocation in
+D:\Outbox_lab\outbox-email-scheduler\apps\backend\src\auth\passport.ts:40:42
+
+  37 }
+  38 
+  39 // Upsert user: create if new, update name/avatar if returning
+→ 40 const user = await prisma.user.upsert(
+The table `public.User` does not exist in the current database.
+2026-09-27 08:40:38 [[31merror[39m]: Google OAuth strategy error {"error":{"name":"PrismaClientKnownRequestError","code":"P2021","clientVersion":"5.22.0","meta":{"modelName":"User","table":"public.User"}}}
+2026-09-27 08:40:38 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:10:38 +0000] "GET /api/auth/google/callback?iss=https%3A%2F%2Faccounts.google.com&code=4%2F0AXlqoi6nWA6awiAv43ON_clcIXMwmGZhm3Z_jmESQMcmHbqDalxM8YIJ_95ebkoUOKCkYw&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=4&prompt=none HTTP/1.1" 302 60 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:40:38 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:10:38 +0000] "GET /api/auth/me HTTP/1.1" 401 42 "http://localhost:5173/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:40:38 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:10:38 +0000] "GET /api/auth/me HTTP/1.1" 401 42 "http://localhost:5173/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:40:38 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:10:38 +0000] "GET /api/auth/me HTTP/1.1" 401 42 "http://localhost:5173/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:41:08 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:11:08 +0000] "GET /api/auth/me HTTP/1.1" 401 42 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+2026-09-27 08:41:08 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:11:08 +0000] "GET /api/auth/me HTTP/1.1" 401 42 "http://localhost:5173/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+2026-09-27 08:41:08 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:11:08 +0000] "GET /api/auth/me HTTP/1.1" 401 42 "http://localhost:5173/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+2026-09-27 08:41:09 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:11:09 +0000] "GET /api/auth/google HTTP/1.1" 302 0 "http://localhost:5173/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+2026-09-27 08:41:36 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:11:36 +0000] "GET /api/auth/me HTTP/1.1" 401 42 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+2026-09-27 08:41:36 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:11:36 +0000] "GET /api/auth/me HTTP/1.1" 401 42 "http://localhost:5173/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+2026-09-27 08:41:36 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:11:36 +0000] "GET /api/auth/me HTTP/1.1" 401 42 "http://localhost:5173/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+2026-09-27 08:41:38 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:11:38 +0000] "GET /api/auth/google HTTP/1.1" 302 0 "http://localhost:5173/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+2026-09-27 08:41:45 [[31merror[39m]: Prisma error 
+Invalid `prisma.user.upsert()` invocation in
+D:\Outbox_lab\outbox-email-scheduler\apps\backend\src\auth\passport.ts:40:42
+
+  37 }
+  38 
+  39 // Upsert user: create if new, update name/avatar if returning
+→ 40 const user = await prisma.user.upsert(
+The table `public.User` does not exist in the current database.
+2026-09-27 08:41:45 [[31merror[39m]: Google OAuth strategy error {"error":{"name":"PrismaClientKnownRequestError","code":"P2021","clientVersion":"5.22.0","meta":{"modelName":"User","table":"public.User"}}}
+2026-09-27 08:41:45 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:11:45 +0000] "GET /api/auth/google/callback?iss=https%3A%2F%2Faccounts.google.com&code=4%2F0AXlqoi7sG57MFfJ66TzMw7zLVreXzcn4LK-494EF7-6tn1b1l1LzbMnPaCB1DhLi1leYMA&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=consent HTTP/1.1" 302 60 "https://accounts.google.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+2026-09-27 08:41:45 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:11:45 +0000] "GET /api/auth/me HTTP/1.1" 401 42 "http://localhost:5173/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+2026-09-27 08:41:45 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:11:45 +0000] "GET /api/auth/me HTTP/1.1" 401 42 "http://localhost:5173/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+2026-09-27 08:41:45 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:11:45 +0000] "GET /api/auth/me HTTP/1.1" 401 42 "http://localhost:5173/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+2026-09-27 08:41:51 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:11:51 +0000] "GET /api/auth/google HTTP/1.1" 302 0 "http://localhost:5173/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+2026-09-27 08:41:59 [[31merror[39m]: Prisma error 
+Invalid `prisma.user.upsert()` invocation in
+D:\Outbox_lab\outbox-email-scheduler\apps\backend\src\auth\passport.ts:40:42
+
+  37 }
+  38 
+  39 // Upsert user: create if new, update name/avatar if returning
+→ 40 const user = await prisma.user.upsert(
+The table `public.User` does not exist in the current database.
+2026-09-27 08:41:59 [[31merror[39m]: Google OAuth strategy error {"error":{"name":"PrismaClientKnownRequestError","code":"P2021","clientVersion":"5.22.0","meta":{"modelName":"User","table":"public.User"}}}
+2026-09-27 08:41:59 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:11:59 +0000] "GET /api/auth/google/callback?iss=https%3A%2F%2Faccounts.google.com&code=4%2F0AXlqoi5Xqe96iCQ4yeqMGo2H_coTKHuMrf9ucYgR8dvODR7eplN8trr2uaNqen4dVH6uwQ&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=0&prompt=none HTTP/1.1" 302 60 "https://accounts.google.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+2026-09-27 08:41:59 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:11:59 +0000] "GET /api/auth/me HTTP/1.1" 401 42 "http://localhost:5173/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+2026-09-27 08:41:59 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:11:59 +0000] "GET /api/auth/me HTTP/1.1" 401 42 "http://localhost:5173/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+2026-09-27 08:41:59 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:11:59 +0000] "GET /api/auth/me HTTP/1.1" 401 42 "http://localhost:5173/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+2026-09-27 08:42:14 [[32minfo[39m]: Redis [queue] connecting
+2026-09-27 08:42:14 [[32minfo[39m]: Database connected successfully
+2026-09-27 08:42:14 [[32minfo[39m]: Redis [queue] ready
+2026-09-27 08:42:14 [[32minfo[39m]: Redis [shared] connecting
+2026-09-27 08:42:14 [[32minfo[39m]: Redis [shared] ready
+2026-09-27 08:42:14 [[32minfo[39m]: Redis connected
+2026-09-27 08:42:14 [[32minfo[39m]: Elasticsearch connected {"version":"8.11.1"}
+2026-09-27 08:42:14 [[32minfo[39m]: 🚀 Outbox Backend running on port 5000 {"env":"development","bullBoard":"http://localhost:5000/admin/queues"}
+2026-09-27 08:42:14 [[32minfo[39m]: Redis [session] connecting
+2026-09-27 08:42:14 [[32minfo[39m]: Redis [session] ready
+2026-09-27 08:42:47 [[32minfo[39m]: Redis [queue] connecting
+2026-09-27 08:42:47 [[32minfo[39m]: Database connected successfully
+2026-09-27 08:42:47 [[32minfo[39m]: Redis [shared] connecting
+2026-09-27 08:42:47 [[32minfo[39m]: Redis [queue] ready
+2026-09-27 08:42:47 [[32minfo[39m]: Redis [shared] ready
+2026-09-27 08:42:47 [[32minfo[39m]: Redis connected
+2026-09-27 08:42:47 [[32minfo[39m]: Elasticsearch connected {"version":"8.11.1"}
+2026-09-27 08:42:47 [[32minfo[39m]: 🚀 Outbox Backend running on port 5000 {"env":"development","bullBoard":"http://localhost:5000/admin/queues"}
+2026-09-27 08:42:47 [[32minfo[39m]: Redis [session] connecting
+2026-09-27 08:42:47 [[32minfo[39m]: Redis [session] ready
+2026-09-27 08:43:48 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:13:48 +0000] "GET /api/auth/me HTTP/1.1" 401 42 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:43:48 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:13:48 +0000] "GET /api/auth/me HTTP/1.1" 401 42 "http://localhost:5173/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:43:48 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:13:48 +0000] "GET /api/auth/me HTTP/1.1" 401 42 "http://localhost:5173/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:43:50 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:13:50 +0000] "GET /api/auth/google HTTP/1.1" 302 0 "http://localhost:5173/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:43:56 [[32minfo[39m]: User authenticated via Google {"userId":"cmuj8vc5h0000jf0kuhpuwhmi","email":"finexjoshy@gmail.com"}
+2026-09-27 08:43:56 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:13:56 +0000] "GET /api/auth/google/callback?iss=https%3A%2F%2Faccounts.google.com&code=4%2F0AXlqoi43UtX_xRoMGFs96CQZnFPGOFLwxbZJqYa4BqxSqQwE8UsiH1g3QeyX4Z4hNkiMDA&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=4&prompt=none HTTP/1.1" 302 60 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:43:56 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:13:56 +0000] "GET /api/auth/me HTTP/1.1" 200 225 "http://localhost:5173/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:43:56 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:13:56 +0000] "GET /api/senders HTTP/1.1" 200 14 "http://localhost:5173/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:43:56 [[31merror[39m]: Prisma error 
+Invalid `prisma.emailJob.findMany()` invocation in
+D:\Outbox_lab\outbox-email-scheduler\apps\backend\src\routes\emails.ts:81:21
+
+  78 const skip = (page - 1) * limit;
+  79 
+  80 const [emails, total] = await Promise.all([
+→ 81   prisma.emailJob.findMany(
+The column `EmailJob.lockedAttempt` does not exist in the current database.
+2026-09-27 08:43:56 [[31merror[39m]: Unhandled promise rejection {"reason":{"name":"PrismaClientKnownRequestError","code":"P2022","clientVersion":"5.22.0","meta":{"modelName":"EmailJob","column":"EmailJob.lockedAttempt"}}}
+2026-09-27 08:43:56 [[31merror[39m]: Prisma error 
+Invalid `prisma.emailJob.findMany()` invocation in
+D:\Outbox_lab\outbox-email-scheduler\apps\backend\src\routes\emails.ts:52:21
+
+  49 const skip = (page - 1) * limit;
+  50 
+  51 const [emails, total] = await Promise.all([
+→ 52   prisma.emailJob.findMany(
+The column `EmailJob.lockedAttempt` does not exist in the current database.
+2026-09-27 08:43:56 [[31merror[39m]: Unhandled promise rejection {"reason":{"name":"PrismaClientKnownRequestError","code":"P2022","clientVersion":"5.22.0","meta":{"modelName":"EmailJob","column":"EmailJob.lockedAttempt"}}}
+2026-09-27 08:44:02 [[31merror[39m]: Prisma error 
+Invalid `prisma.emailJob.findMany()` invocation in
+D:\Outbox_lab\outbox-email-scheduler\apps\backend\src\routes\emails.ts:52:21
+
+  49 const skip = (page - 1) * limit;
+  50 
+  51 const [emails, total] = await Promise.all([
+→ 52   prisma.emailJob.findMany(
+The column `EmailJob.lockedAttempt` does not exist in the current database.
+2026-09-27 08:44:02 [[31merror[39m]: Unhandled promise rejection {"reason":{"name":"PrismaClientKnownRequestError","code":"P2022","clientVersion":"5.22.0","meta":{"modelName":"EmailJob","column":"EmailJob.lockedAttempt"}}}
+2026-09-27 08:44:07 [[31merror[39m]: Prisma error 
+Invalid `prisma.emailJob.findMany()` invocation in
+D:\Outbox_lab\outbox-email-scheduler\apps\backend\src\routes\emails.ts:81:21
+
+  78 const skip = (page - 1) * limit;
+  79 
+  80 const [emails, total] = await Promise.all([
+→ 81   prisma.emailJob.findMany(
+The column `EmailJob.lockedAttempt` does not exist in the current database.
+2026-09-27 08:44:07 [[31merror[39m]: Unhandled promise rejection {"reason":{"name":"PrismaClientKnownRequestError","code":"P2022","clientVersion":"5.22.0","meta":{"modelName":"EmailJob","column":"EmailJob.lockedAttempt"}}}
+2026-09-27 08:44:15 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:14:15 +0000] "GET /api/auth/slack HTTP/1.1" 302 287 "http://localhost:5173/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:44:28 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:14:28 +0000] "GET /api/auth/me HTTP/1.1" 304 - "http://localhost:5173/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:44:28 [[31merror[39m]: Prisma error 
+Invalid `prisma.emailJob.findMany()` invocation in
+D:\Outbox_lab\outbox-email-scheduler\apps\backend\src\routes\emails.ts:52:21
+
+  49 const skip = (page - 1) * limit;
+  50 
+  51 const [emails, total] = await Promise.all([
+→ 52   prisma.emailJob.findMany(
+The column `EmailJob.lockedAttempt` does not exist in the current database.
+2026-09-27 08:44:28 [[31merror[39m]: Unhandled promise rejection {"reason":{"name":"PrismaClientKnownRequestError","code":"P2022","clientVersion":"5.22.0","meta":{"modelName":"EmailJob","column":"EmailJob.lockedAttempt"}}}
+2026-09-27 08:44:28 [[31merror[39m]: Prisma error 
+Invalid `prisma.emailJob.findMany()` invocation in
+D:\Outbox_lab\outbox-email-scheduler\apps\backend\src\routes\emails.ts:81:21
+
+  78 const skip = (page - 1) * limit;
+  79 
+  80 const [emails, total] = await Promise.all([
+→ 81   prisma.emailJob.findMany(
+The column `EmailJob.lockedAttempt` does not exist in the current database.
+2026-09-27 08:44:28 [[31merror[39m]: Unhandled promise rejection {"reason":{"name":"PrismaClientKnownRequestError","code":"P2022","clientVersion":"5.22.0","meta":{"modelName":"EmailJob","column":"EmailJob.lockedAttempt"}}}
+2026-09-27 08:44:28 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:14:28 +0000] "GET /api/senders HTTP/1.1" 304 - "http://localhost:5173/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:44:32 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:14:32 +0000] "GET /admin/queues HTTP/1.1" 401 23 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:44:34 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:14:34 +0000] "GET /admin/queues HTTP/1.1" 401 23 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:45:35 [[31merror[39m]: Prisma error Error in PostgreSQL connection: Error { kind: Db, cause: Some(DbError { severity: "FATAL", parsed_severity: Some(Fatal), code: SqlState(E57P01), message: "terminating connection due to administrator command", detail: None, hint: None, position: None, where_: None, schema: None, table: None, column: None, datatype: None, constraint: None, file: Some("postgres.c"), line: Some(3286), routine: Some("ProcessInterrupts") }) }
+2026-09-27 08:45:35 [[31merror[39m]: Prisma error Error in PostgreSQL connection: Error { kind: Db, cause: Some(DbError { severity: "FATAL", parsed_severity: Some(Fatal), code: SqlState(E57P01), message: "terminating connection due to administrator command", detail: None, hint: None, position: None, where_: None, schema: None, table: None, column: None, datatype: None, constraint: None, file: Some("postgres.c"), line: Some(3286), routine: Some("ProcessInterrupts") }) }
+2026-09-27 08:45:35 [[31merror[39m]: Prisma error Error in PostgreSQL connection: Error { kind: Db, cause: Some(DbError { severity: "FATAL", parsed_severity: Some(Fatal), code: SqlState(E57P01), message: "terminating connection due to administrator command", detail: None, hint: None, position: None, where_: None, schema: None, table: None, column: None, datatype: None, constraint: None, file: Some("postgres.c"), line: Some(3286), routine: Some("ProcessInterrupts") }) }
+2026-09-27 08:45:35 [[31merror[39m]: Prisma error Error in PostgreSQL connection: Error { kind: Db, cause: Some(DbError { severity: "FATAL", parsed_severity: Some(Fatal), code: SqlState(E57P01), message: "terminating connection due to administrator command", detail: None, hint: None, position: None, where_: None, schema: None, table: None, column: None, datatype: None, constraint: None, file: Some("postgres.c"), line: Some(3286), routine: Some("ProcessInterrupts") }) }
+2026-09-27 08:45:35 [[31merror[39m]: Prisma error Error in PostgreSQL connection: Error { kind: Db, cause: Some(DbError { severity: "FATAL", parsed_severity: Some(Fatal), code: SqlState(E57P01), message: "terminating connection due to administrator command", detail: None, hint: None, position: None, where_: None, schema: None, table: None, column: None, datatype: None, constraint: None, file: Some("postgres.c"), line: Some(3286), routine: Some("ProcessInterrupts") }) }
+2026-09-27 08:45:35 [[31merror[39m]: Prisma error Error in PostgreSQL connection: Error { kind: Db, cause: Some(DbError { severity: "FATAL", parsed_severity: Some(Fatal), code: SqlState(E57P01), message: "terminating connection due to administrator command", detail: None, hint: None, position: None, where_: None, schema: None, table: None, column: None, datatype: None, constraint: None, file: Some("postgres.c"), line: Some(3286), routine: Some("ProcessInterrupts") }) }
+2026-09-27 08:45:35 [[33mwarn[39m]: Redis [session] connection closed
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [session] reconnecting
+2026-09-27 08:45:35 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:35 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:35 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [session] connecting
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [shared] connecting
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:35 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:35 [[33mwarn[39m]: Redis [worker] connection closed
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [worker] reconnecting
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [shared] connecting
+2026-09-27 08:45:35 [[31merror[39m]: Redis [shared] error {"error":"read ECONNRESET"}
+2026-09-27 08:45:35 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:35 [[33mwarn[39m]: Redis [session] connection closed
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [session] reconnecting
+2026-09-27 08:45:35 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [queue] connecting
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [queue] connecting
+2026-09-27 08:45:35 [[31merror[39m]: Redis [queue] error {"error":"write ECONNABORTED"}
+2026-09-27 08:45:35 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:35 [[31merror[39m]: Redis [queue] error {"error":"write ECONNABORTED"}
+2026-09-27 08:45:35 [[31merror[39m]: Worker error {"error":"write ECONNABORTED"}
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [worker] connecting
+2026-09-27 08:45:35 [[31merror[39m]: Redis [worker] error {"error":"write ECONNABORTED"}
+2026-09-27 08:45:35 [[31merror[39m]: Worker error {"error":"write ECONNABORTED"}
+2026-09-27 08:45:35 [[33mwarn[39m]: Redis [worker] connection closed
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [worker] reconnecting
+2026-09-27 08:45:35 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [session] connecting
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [shared] connecting
+2026-09-27 08:45:35 [[33mwarn[39m]: Redis [session] connection closed
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [session] reconnecting
+2026-09-27 08:45:35 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [shared] connecting
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [queue] connecting
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [worker] connecting
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [queue] connecting
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [session] connecting
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [shared] connecting
+2026-09-27 08:45:35 [[33mwarn[39m]: Redis [session] connection closed
+2026-09-27 08:45:35 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [session] reconnecting
+2026-09-27 08:45:35 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:35 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:35 [[33mwarn[39m]: Redis [worker] connection closed
+2026-09-27 08:45:35 [[32minfo[39m]: Redis [worker] reconnecting
+2026-09-27 08:45:36 [[32minfo[39m]: Redis [queue] connecting
+2026-09-27 08:45:36 [[32minfo[39m]: Redis [worker] connecting
+2026-09-27 08:45:36 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:36 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:36 [[32minfo[39m]: Redis [queue] connecting
+2026-09-27 08:45:36 [[33mwarn[39m]: Redis [worker] connection closed
+2026-09-27 08:45:36 [[32minfo[39m]: Redis [worker] reconnecting
+2026-09-27 08:45:36 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:36 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:36 [[32minfo[39m]: Redis [session] connecting
+2026-09-27 08:45:36 [[32minfo[39m]: Redis [shared] connecting
+2026-09-27 08:45:36 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:36 [[33mwarn[39m]: Redis [session] connection closed
+2026-09-27 08:45:36 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:36 [[32minfo[39m]: Redis [session] reconnecting
+2026-09-27 08:45:36 [[32minfo[39m]: Redis [queue] connecting
+2026-09-27 08:45:36 [[32minfo[39m]: Redis [worker] connecting
+2026-09-27 08:45:36 [[32minfo[39m]: Redis [queue] connecting
+2026-09-27 08:45:36 [[32minfo[39m]: Redis [shared] connecting
+2026-09-27 08:45:36 [[32minfo[39m]: Redis [session] connecting
+2026-09-27 08:45:39 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:39 [[31merror[39m]: Redis [worker] error {"error":"read ECONNRESET"}
+2026-09-27 08:45:39 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:39 [[31merror[39m]: Redis [queue] error {"error":"read ECONNRESET"}
+2026-09-27 08:45:39 [[31merror[39m]: Redis [session] error {"error":"read ECONNRESET"}
+2026-09-27 08:45:39 [[33mwarn[39m]: Redis [session] connection closed
+2026-09-27 08:45:39 [[32minfo[39m]: Redis [session] reconnecting
+2026-09-27 08:45:39 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:39 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:39 [[31merror[39m]: Worker error {"error":"read ECONNRESET"}
+2026-09-27 08:45:39 [[31merror[39m]: Worker error {"error":"read ECONNRESET"}
+2026-09-27 08:45:39 [[31merror[39m]: Redis [queue] error {"error":"read ECONNRESET"}
+2026-09-27 08:45:39 [[31merror[39m]: Redis [shared] error {"error":"read ECONNRESET"}
+2026-09-27 08:45:39 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:39 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:39 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:39 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:39 [[33mwarn[39m]: Redis [worker] connection closed
+2026-09-27 08:45:39 [[32minfo[39m]: Redis [worker] reconnecting
+2026-09-27 08:45:39 [[31merror[39m]: Redis [shared] error {"error":""}
+2026-09-27 08:45:39 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:39 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:40 [[31merror[39m]: Redis [queue] error {"error":""}
+2026-09-27 08:45:40 [[31merror[39m]: Redis [queue] error {"error":""}
+2026-09-27 08:45:40 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:40 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:40 [[31merror[39m]: Worker error {"error":""}
+2026-09-27 08:45:40 [[31merror[39m]: Redis [worker] error {"error":""}
+2026-09-27 08:45:40 [[31merror[39m]: Worker error {"error":""}
+2026-09-27 08:45:40 [[33mwarn[39m]: Redis [worker] connection closed
+2026-09-27 08:45:40 [[32minfo[39m]: Redis [worker] reconnecting
+2026-09-27 08:45:40 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:40 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:40 [[31merror[39m]: Redis [shared] error {"error":""}
+2026-09-27 08:45:40 [[31merror[39m]: Redis [session] error {"error":""}
+2026-09-27 08:45:40 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:40 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:40 [[33mwarn[39m]: Redis [session] connection closed
+2026-09-27 08:45:40 [[32minfo[39m]: Redis [session] reconnecting
+2026-09-27 08:45:40 [[31merror[39m]: Redis [shared] error {"error":""}
+2026-09-27 08:45:40 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:40 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:40 [[31merror[39m]: Redis [queue] error {"error":""}
+2026-09-27 08:45:40 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:40 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:40 [[31merror[39m]: Redis [worker] error {"error":""}
+2026-09-27 08:45:40 [[31merror[39m]: Worker error {"error":""}
+2026-09-27 08:45:40 [[31merror[39m]: Worker error {"error":""}
+2026-09-27 08:45:40 [[33mwarn[39m]: Redis [worker] connection closed
+2026-09-27 08:45:40 [[32minfo[39m]: Redis [worker] reconnecting
+2026-09-27 08:45:40 [[31merror[39m]: Redis [queue] error {"error":""}
+2026-09-27 08:45:40 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:40 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:40 [[31merror[39m]: Redis [shared] error {"error":""}
+2026-09-27 08:45:40 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:40 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:40 [[31merror[39m]: Redis [session] error {"error":""}
+2026-09-27 08:45:40 [[31merror[39m]: Redis [shared] error {"error":""}
+2026-09-27 08:45:40 [[33mwarn[39m]: Redis [session] connection closed
+2026-09-27 08:45:40 [[32minfo[39m]: Redis [session] reconnecting
+2026-09-27 08:45:40 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:40 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:40 [[31merror[39m]: Redis [queue] error {"error":""}
+2026-09-27 08:45:40 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:40 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:40 [[31merror[39m]: Redis [shared] error {"error":""}
+2026-09-27 08:45:40 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:40 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:40 [[31merror[39m]: Worker error {"error":""}
+2026-09-27 08:45:40 [[31merror[39m]: Redis [worker] error {"error":""}
+2026-09-27 08:45:40 [[31merror[39m]: Worker error {"error":""}
+2026-09-27 08:45:40 [[31merror[39m]: Redis [queue] error {"error":""}
+2026-09-27 08:45:40 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:40 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:40 [[33mwarn[39m]: Redis [worker] connection closed
+2026-09-27 08:45:40 [[32minfo[39m]: Redis [worker] reconnecting
+2026-09-27 08:45:40 [[31merror[39m]: Redis [session] error {"error":""}
+2026-09-27 08:45:40 [[31merror[39m]: Redis [shared] error {"error":""}
+2026-09-27 08:45:40 [[33mwarn[39m]: Redis [session] connection closed
+2026-09-27 08:45:40 [[32minfo[39m]: Redis [session] reconnecting
+2026-09-27 08:45:40 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:40 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:41 [[31merror[39m]: Redis [shared] error {"error":""}
+2026-09-27 08:45:41 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:41 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:41 [[31merror[39m]: Redis [queue] error {"error":""}
+2026-09-27 08:45:41 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:41 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:41 [[31merror[39m]: Worker error {"error":""}
+2026-09-27 08:45:41 [[31merror[39m]: Redis [queue] error {"error":""}
+2026-09-27 08:45:41 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:41 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:41 [[31merror[39m]: Redis [worker] error {"error":""}
+2026-09-27 08:45:41 [[31merror[39m]: Worker error {"error":""}
+2026-09-27 08:45:41 [[33mwarn[39m]: Redis [worker] connection closed
+2026-09-27 08:45:41 [[32minfo[39m]: Redis [worker] reconnecting
+2026-09-27 08:45:41 [[31merror[39m]: Redis [shared] error {"error":""}
+2026-09-27 08:45:41 [[31merror[39m]: Redis [session] error {"error":""}
+2026-09-27 08:45:41 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:41 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:41 [[33mwarn[39m]: Redis [session] connection closed
+2026-09-27 08:45:41 [[32minfo[39m]: Redis [session] reconnecting
+2026-09-27 08:45:41 [[31merror[39m]: Redis [shared] error {"error":""}
+2026-09-27 08:45:41 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:41 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:41 [[31merror[39m]: Redis [queue] error {"error":""}
+2026-09-27 08:45:41 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:41 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:41 [[31merror[39m]: Worker error {"error":""}
+2026-09-27 08:45:41 [[31merror[39m]: Redis [queue] error {"error":""}
+2026-09-27 08:45:41 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:41 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:41 [[31merror[39m]: Redis [worker] error {"error":""}
+2026-09-27 08:45:41 [[31merror[39m]: Worker error {"error":""}
+2026-09-27 08:45:41 [[33mwarn[39m]: Redis [worker] connection closed
+2026-09-27 08:45:41 [[32minfo[39m]: Redis [worker] reconnecting
+2026-09-27 08:45:41 [[31merror[39m]: Redis [shared] error {"error":""}
+2026-09-27 08:45:41 [[31merror[39m]: Redis [session] error {"error":""}
+2026-09-27 08:45:41 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:41 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:41 [[33mwarn[39m]: Redis [session] connection closed
+2026-09-27 08:45:41 [[32minfo[39m]: Redis [session] reconnecting
+2026-09-27 08:45:42 [[31merror[39m]: Redis [shared] error {"error":""}
+2026-09-27 08:45:42 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:42 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:42 [[31merror[39m]: Redis [queue] error {"error":""}
+2026-09-27 08:45:42 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:42 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:42 [[31merror[39m]: Worker error {"error":""}
+2026-09-27 08:45:42 [[31merror[39m]: Redis [queue] error {"error":""}
+2026-09-27 08:45:42 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:42 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:42 [[31merror[39m]: Redis [worker] error {"error":""}
+2026-09-27 08:45:42 [[31merror[39m]: Worker error {"error":""}
+2026-09-27 08:45:42 [[33mwarn[39m]: Redis [worker] connection closed
+2026-09-27 08:45:42 [[32minfo[39m]: Redis [worker] reconnecting
+2026-09-27 08:45:42 [[31merror[39m]: Redis [shared] error {"error":""}
+2026-09-27 08:45:42 [[31merror[39m]: Redis [session] error {"error":""}
+2026-09-27 08:45:42 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:42 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:42 [[33mwarn[39m]: Redis [session] connection closed
+2026-09-27 08:45:42 [[32minfo[39m]: Redis [session] reconnecting
+2026-09-27 08:45:42 [[31merror[39m]: Redis [shared] error {"error":""}
+2026-09-27 08:45:42 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:42 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:42 [[31merror[39m]: Redis [queue] error {"error":""}
+2026-09-27 08:45:42 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:42 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:42 [[31merror[39m]: Redis [queue] error {"error":""}
+2026-09-27 08:45:42 [[31merror[39m]: Worker error {"error":""}
+2026-09-27 08:45:42 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:42 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:42 [[31merror[39m]: Redis [worker] error {"error":""}
+2026-09-27 08:45:42 [[31merror[39m]: Worker error {"error":""}
+2026-09-27 08:45:42 [[33mwarn[39m]: Redis [worker] connection closed
+2026-09-27 08:45:42 [[32minfo[39m]: Redis [worker] reconnecting
+2026-09-27 08:45:43 [[31merror[39m]: Redis [shared] error {"error":""}
+2026-09-27 08:45:43 [[31merror[39m]: Redis [session] error {"error":""}
+2026-09-27 08:45:43 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:43 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:43 [[33mwarn[39m]: Redis [session] connection closed
+2026-09-27 08:45:43 [[32minfo[39m]: Redis [session] reconnecting
+2026-09-27 08:45:43 [[31merror[39m]: Redis [shared] error {"error":""}
+2026-09-27 08:45:43 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:43 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:43 [[31merror[39m]: Redis [queue] error {"error":""}
+2026-09-27 08:45:43 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:43 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:43 [[31merror[39m]: Worker error {"error":""}
+2026-09-27 08:45:43 [[31merror[39m]: Redis [queue] error {"error":""}
+2026-09-27 08:45:43 [[31merror[39m]: Redis [worker] error {"error":""}
+2026-09-27 08:45:43 [[31merror[39m]: Worker error {"error":""}
+2026-09-27 08:45:43 [[33mwarn[39m]: Redis [worker] connection closed
+2026-09-27 08:45:43 [[32minfo[39m]: Redis [worker] reconnecting
+2026-09-27 08:45:43 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:43 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:43 [[31merror[39m]: Redis [shared] error {"error":""}
+2026-09-27 08:45:43 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:43 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:43 [[31merror[39m]: Redis [session] error {"error":""}
+2026-09-27 08:45:43 [[31merror[39m]: Redis [shared] error {"error":""}
+2026-09-27 08:45:43 [[33mwarn[39m]: Redis [session] connection closed
+2026-09-27 08:45:43 [[32minfo[39m]: Redis [session] reconnecting
+2026-09-27 08:45:43 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:43 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:43 [[31merror[39m]: Redis [queue] error {"error":""}
+2026-09-27 08:45:43 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:43 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:44 [[31merror[39m]: Worker error {"error":""}
+2026-09-27 08:45:44 [[31merror[39m]: Redis [worker] error {"error":""}
+2026-09-27 08:45:44 [[31merror[39m]: Worker error {"error":""}
+2026-09-27 08:45:44 [[31merror[39m]: Redis [queue] error {"error":""}
+2026-09-27 08:45:44 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:44 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:44 [[33mwarn[39m]: Redis [worker] connection closed
+2026-09-27 08:45:44 [[32minfo[39m]: Redis [worker] reconnecting
+2026-09-27 08:45:44 [[31merror[39m]: Redis [shared] error {"error":""}
+2026-09-27 08:45:44 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:44 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:44 [[31merror[39m]: Redis [shared] error {"error":""}
+2026-09-27 08:45:44 [[31merror[39m]: Redis [session] error {"error":""}
+2026-09-27 08:45:44 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:44 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:44 [[33mwarn[39m]: Redis [session] connection closed
+2026-09-27 08:45:44 [[32minfo[39m]: Redis [session] reconnecting
+2026-09-27 08:45:44 [[32minfo[39m]: Received SIGINT, shutting down worker gracefully
+2026-09-27 08:45:44 [[31merror[39m]: Redis [queue] error {"error":""}
+2026-09-27 08:45:44 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:44 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:45 [[31merror[39m]: Redis [shared] error {"error":""}
+2026-09-27 08:45:45 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:45 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:45 [[31merror[39m]: Redis [session] error {"error":""}
+2026-09-27 08:45:45 [[33mwarn[39m]: Redis [session] connection closed
+2026-09-27 08:45:45 [[32minfo[39m]: Redis [session] reconnecting
+2026-09-27 08:45:45 [[31merror[39m]: Redis [queue] error {"error":""}
+2026-09-27 08:45:45 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:45 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:45 [[31merror[39m]: Redis [shared] error {"error":""}
+2026-09-27 08:45:45 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:45 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:46 [[31merror[39m]: Redis [session] error {"error":""}
+2026-09-27 08:45:46 [[33mwarn[39m]: Redis [session] connection closed
+2026-09-27 08:45:46 [[32minfo[39m]: Redis [session] reconnecting
+2026-09-27 08:45:46 [[31merror[39m]: Redis [queue] error {"error":""}
+2026-09-27 08:45:46 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:46 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:46 [[31merror[39m]: Redis [shared] error {"error":""}
+2026-09-27 08:45:46 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:46 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:46 [[31merror[39m]: Redis [session] error {"error":""}
+2026-09-27 08:45:46 [[33mwarn[39m]: Redis [session] connection closed
+2026-09-27 08:45:46 [[32minfo[39m]: Redis [session] reconnecting
+2026-09-27 08:45:47 [[31merror[39m]: Redis [queue] error {"error":""}
+2026-09-27 08:45:47 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:47 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:47 [[31merror[39m]: Redis [shared] error {"error":""}
+2026-09-27 08:45:47 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:47 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:47 [[31merror[39m]: Redis [session] error {"error":""}
+2026-09-27 08:45:47 [[33mwarn[39m]: Redis [session] connection closed
+2026-09-27 08:45:47 [[32minfo[39m]: Redis [session] reconnecting
+2026-09-27 08:45:48 [[31merror[39m]: Redis [queue] error {"error":""}
+2026-09-27 08:45:48 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:48 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:48 [[31merror[39m]: Redis [shared] error {"error":""}
+2026-09-27 08:45:48 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:48 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:48 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:15:48 +0000] "GET /api/emails/sent?page=1&limit=50 HTTP/1.1" - - "http://localhost:5173/sent" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:45:48 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:15:48 +0000] "GET /api/emails/scheduled?page=1&limit=5 HTTP/1.1" - - "http://localhost:5173/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:45:48 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:15:48 +0000] "GET /api/emails/sent?page=1&limit=5 HTTP/1.1" - - "http://localhost:5173/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:45:48 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:15:48 +0000] "GET /api/emails/sent?page=1&limit=5 HTTP/1.1" - - "http://localhost:5173/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:45:48 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:15:48 +0000] "GET /api/emails/scheduled?page=1&limit=50 HTTP/1.1" - - "http://localhost:5173/scheduled" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:45:48 [[32minfo[39m]: ::1 - - [27/Sep/2026:03:15:48 +0000] "GET /api/emails/scheduled?page=1&limit=5 HTTP/1.1" - - "http://localhost:5173/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+2026-09-27 08:45:48 [[31merror[39m]: Redis [session] error {"error":""}
+2026-09-27 08:45:48 [[33mwarn[39m]: Redis [session] connection closed
+2026-09-27 08:45:48 [[32minfo[39m]: Redis [session] reconnecting
+2026-09-27 08:45:48 [[31merror[39m]: Redis [queue] error {"error":""}
+2026-09-27 08:45:48 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:48 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:49 [[31merror[39m]: Redis [shared] error {"error":""}
+2026-09-27 08:45:49 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:49 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:49 [[31merror[39m]: Redis [session] error {"error":""}
+2026-09-27 08:45:49 [[33mwarn[39m]: Redis [session] connection closed
+2026-09-27 08:45:49 [[32minfo[39m]: Redis [session] reconnecting
+2026-09-27 08:45:50 [[31merror[39m]: Redis [queue] error {"error":""}
+2026-09-27 08:45:50 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:50 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:50 [[31merror[39m]: Redis [shared] error {"error":""}
+2026-09-27 08:45:50 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:50 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:50 [[31merror[39m]: Redis [session] error {"error":""}
+2026-09-27 08:45:50 [[33mwarn[39m]: Redis [session] connection closed
+2026-09-27 08:45:50 [[32minfo[39m]: Redis [session] reconnecting
+2026-09-27 08:45:51 [[31merror[39m]: Redis [queue] error {"error":""}
+2026-09-27 08:45:51 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:51 [[32minfo[39m]: Redis [queue] reconnecting
+2026-09-27 08:45:51 [[31merror[39m]: Redis [shared] error {"error":""}
+2026-09-27 08:45:51 [[33mwarn[39m]: Redis [shared] connection closed
+2026-09-27 08:45:51 [[32minfo[39m]: Redis [shared] reconnecting
+2026-09-27 08:45:51 [[31merror[39m]: Redis [session] error {"error":""}
+2026-09-27 08:45:51 [[33mwarn[39m]: Redis [session] connection closed
+2026-09-27 08:45:51 [[32minfo[39m]: Redis [session] reconnecting
+2026-09-27 08:45:52 [[32minfo[39m]: Received SIGINT — shutting down gracefully
+2026-09-27 08:45:52 [[31merror[39m]: Redis [queue] error {"error":""}
+2026-09-27 08:45:52 [[33mwarn[39m]: Redis [queue] connection closed
+2026-09-27 08:45:52 [[32minfo[39m]: Redis [queue] reconnecting

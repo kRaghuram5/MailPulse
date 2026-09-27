@@ -1,0 +1,99 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         String   @id @default(cuid())
+  googleId   String   @unique
+  name       String
+  email      String   @unique
+  avatarUrl  String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  senders         Sender[]
+  emailJobs       EmailJob[]
+  slackConnection SlackConnection?
+
+  @@index([email])
+  @@index([googleId])
+}
+
+model Sender {
+  id          String   @id @default(cuid())
+  userId      String
+  email       String
+  displayName String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  emailJobs EmailJob[]
+
+  @@unique([userId, email])
+  @@index([userId])
+}
+
+enum EmailStatus {
+  SCHEDULED
+  PROCESSING
+  SENDING
+  SENT
+  FAILED
+  RATE_LIMITED
+}
+
+model EmailJob {
+  id             String      @id @default(cuid())
+  userId         String
+  senderId       String
+  recipient      String
+  subject        String
+  body           String      @db.Text
+  scheduledAt    DateTime
+  status         EmailStatus @default(SCHEDULED)
+  attempts       Int         @default(0)
+  lockedAttempt  Int         @default(0)
+  bullJobId      String?
+  idempotencyKey String      @unique
+  sentAt         DateTime?
+  failedAt       DateTime?
+  errorMessage   String?     @db.Text
+  messageId      String?     // SMTP message ID from Ethereal
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  sender Sender @relation(fields: [senderId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([senderId])
+  @@index([status])
+  @@index([scheduledAt])
+  @@index([idempotencyKey])
+  @@index([userId, status])
+}
+
+model SlackConnection {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  accessToken String
+  teamId      String
+  teamName    String
+  botUserId   String?
+  webhookUrl  String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
