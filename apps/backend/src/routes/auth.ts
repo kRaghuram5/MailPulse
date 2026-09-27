@@ -13,10 +13,9 @@ const router = Router();
 // ─── Google OAuth ────────────────────────────────────────────────────────────
 
 router.get('/google', (req: Request, res: Response, next) => {
-  if (!config.google.clientId) {
-    // Development fallback if no Google credentials are provided
-    logger.warn('Using development fallback login (no Google credentials set)');
-    return res.redirect('/api/auth/google/callback');
+  if (!config.google.clientId || !config.google.clientSecret) {
+    logger.error('Google OAuth credentials are not configured in environment variables');
+    return res.status(500).send('Google OAuth credentials are not configured in environment variables.');
   }
   passport.authenticate('google', {
     scope: ['profile', 'email'],
@@ -24,24 +23,10 @@ router.get('/google', (req: Request, res: Response, next) => {
   })(req, res, next);
 });
 
-router.get('/google/callback', async (req: Request, res: Response, next) => {
-  if (!config.google.clientId) {
-    // Auto-login as a mock developer user
-    const user = await prisma.user.upsert({
-      where: { email: 'developer@example.com' },
-      create: {
-        googleId: 'dev-123456789',
-        name: 'Developer (Mock Login)',
-        email: 'developer@example.com',
-      },
-      update: {},
-    });
-
-    req.login(user, (err) => {
-      if (err) return next(err);
-      return res.redirect(`${config.frontend.url}/dashboard`);
-    });
-    return;
+router.get('/google/callback', (req: Request, res: Response, next) => {
+  if (!config.google.clientId || !config.google.clientSecret) {
+    logger.error('Google OAuth credentials missing on callback');
+    return res.redirect(`${config.frontend.url}/login?error=google_credentials_missing`);
   }
 
   passport.authenticate('google', { session: true }, (err, user, info) => {

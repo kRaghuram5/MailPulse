@@ -51,6 +51,23 @@ if (config.google.clientId && config.google.clientSecret) {
             },
           });
 
+          // Ensure default sender exists so user can immediately schedule emails
+          try {
+            await prisma.sender.upsert({
+              where: { userId_email: { userId: user.id, email: user.email } },
+              create: {
+                userId: user.id,
+                email: user.email,
+                displayName: user.name || user.email.split('@')[0],
+              },
+              update: {
+                displayName: user.name || user.email.split('@')[0],
+              },
+            });
+          } catch (senderErr) {
+            logger.warn('Could not auto-create default sender for Google user', { error: senderErr });
+          }
+
           logger.info('User authenticated via Google', {
             userId: user.id,
             email: user.email,
