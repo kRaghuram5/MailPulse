@@ -254,7 +254,7 @@ export async function processEmailJob(job: Job): Promise<void> {
   }
 }
 
-async function startWorker(): Promise<void> {
+export async function startWorker(): Promise<Worker> {
   logger.info('Starting email worker', {
     concurrency: config.worker.concurrency,
     minDelay: config.worker.minDelayBetweenEmailsMs,
@@ -271,8 +271,6 @@ async function startWorker(): Promise<void> {
     concurrency: config.worker.concurrency,
     // BullMQ rate limiter for minimum delay between sends (Redis-backed, distributed)
     // This limits the queue to 1 job per minDelayBetweenEmailsMs milliseconds
-    // Trade-off: This is a global limiter across the queue, not per-sender.
-    // For per-sender delay, a more granular Redis lock would be needed.
     limiter: {
       max: 1,
       duration: config.worker.minDelayBetweenEmailsMs,
@@ -297,19 +295,8 @@ async function startWorker(): Promise<void> {
     logger.error('Worker error', { error: err.message });
   });
 
-  // Graceful shutdown
-  const shutdown = async (signal: string) => {
-    logger.info(`Received ${signal}, shutting down worker gracefully`);
-    await worker.close();
-    await disconnectDatabase();
-    logger.info('Worker shutdown complete');
-    process.exit(0);
-  };
-
-  process.on('SIGTERM', () => shutdown('SIGTERM'));
-  process.on('SIGINT', () => shutdown('SIGINT'));
-
   logger.info('Email worker is running and waiting for jobs');
+  return worker;
 }
 
 if (require.main === module) {

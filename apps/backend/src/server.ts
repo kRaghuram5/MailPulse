@@ -6,11 +6,22 @@ import { connectElasticsearch } from './config/elasticsearch';
 import { config } from './config';
 import { logger } from './config/logger';
 
+import { startWorker } from './workers/emailWorker';
+import { Worker } from 'bullmq';
+
 async function main(): Promise<void> {
   // Connect infrastructure
   await connectDatabase();
   await connectRedis();
   await connectElasticsearch(); // Non-fatal if down
+
+  // Start BullMQ email worker process concurrently
+  let emailWorker: Worker | null = null;
+  try {
+    emailWorker = await startWorker();
+  } catch (workerErr) {
+    logger.error('Failed to start embedded email worker', { error: (workerErr as Error).message });
+  }
 
   const app = createApp();
 
@@ -24,6 +35,9 @@ async function main(): Promise<void> {
   // Graceful shutdown
   const shutdown = async (signal: string) => {
     logger.info(`Received ${signal} — shutting down gracefully`);
+    if (emailWorker) {
+      await emailWorker.close();
+    }
     server.close(async () => {
       await disconnectDatabase();
       await disconnectRedis();
