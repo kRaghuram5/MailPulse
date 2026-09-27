@@ -22,7 +22,7 @@ export default function Layout() {
   };
 
   const handleSlack = async () => {
-    if (user?.slack.connected) {
+    if (user?.slack?.connected) {
       try {
         await authApi.disconnectSlack();
         toast.success('Slack disconnected');
@@ -83,14 +83,14 @@ export default function Layout() {
               <button
                 onClick={handleSlack}
                 className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 border ${
-                  user?.slack.connected
+                  user?.slack?.connected
                     ? 'border-emerald-500/30 bg-emerald-500/10 text-emerald-300 hover:bg-emerald-500/20'
                     : 'border-white/10 bg-surface-2 text-gray-400 hover:bg-surface-3'
                 }`}
-                title={user?.slack.connected ? `Connected: ${user.slack.teamName}` : 'Connect Slack'}
+                title={user?.slack?.connected ? `Connected: ${user.slack?.teamName}` : 'Connect Slack'}
               >
                 <Slack className="w-3.5 h-3.5" />
-                {user?.slack.connected ? user.slack.teamName : 'Slack'}
+                {user?.slack?.connected ? user.slack?.teamName : 'Slack'}
               </button>
 
               <a

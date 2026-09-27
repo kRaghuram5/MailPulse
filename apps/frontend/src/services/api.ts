@@ -6,9 +6,18 @@ const api = axios.create({
   headers: { 'Content-Type': 'application/json' },
 });
 
-// Interceptor: redirect to login on 401
+// Interceptor: reject HTML responses and redirect to login on 401
 api.interceptors.response.use(
-  (res) => res,
+  (res) => {
+    // If the server returned HTML (e.g. Vercel SPA rewrite fallback instead of API response)
+    if (
+      typeof res.data === 'string' &&
+      (res.data.trim().startsWith('<!doctype') || res.data.trim().startsWith('<html'))
+    ) {
+      return Promise.reject(new Error('Backend API not reachable (received HTML)'));
+    }
+    return res;
+  },
   (err) => {
     if (err.response?.status === 401 && window.location.pathname !== '/login') {
       window.location.href = '/login';
